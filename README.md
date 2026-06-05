@@ -1,4 +1,4 @@
-# -Formation_Python_2026
+
 # Formation Python 2026 🐍
 
 Mes exercices et projets Python — élève au lycée qui apprend depuis zéro.
