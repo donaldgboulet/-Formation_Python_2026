@@ -163,14 +163,14 @@ def polygone(n,longueur):
         N = 360/n
         forward(longueur)
         left(N)
- """       
+       
 #triangle()
 #carre()
 #hexagone(200)
 #polygone(5,200)
 ht()
 done()
-"""
+
  
  
  
@@ -284,3 +284,51 @@ def test_multiplication(lang):
 
 # Exemple de test
 test_multiplication("Deutsch")
+
+# _________ACTIVITE5_______
+
+"""
+Activité 5 (Égalité expérimentale).
+Objectifs : utiliser l’ordinateur pour expérimenter des égalités de fonctions."""
+
+from math import*
+#1.a)
+def valeur_absolue(x):
+    if x >=0:
+        return x
+    else :
+        return -x
+    
+print(valeur_absolue(-5))
+
+#1.b)
+def  racine_du_carre(x):
+    return sqrt(x**2)
+
+print(racine_du_carre(-5))
+
+
+#1.c)
+def deux_fonctions_egales():
+
+    for i in range(-100,101):
+        a = abs(i)
+        b = sqrt(i**2)
+        if a != b:
+            print("a different de b ")
+            break
+    else :
+        print("Elles sont egales")
+        
+deux_fonctions_egales()
+    
+    
+    
+    
+    
+    
+
+
+
+
+
