@@ -116,7 +116,7 @@ for rayon in range(0, 30):
     if A > P:
         print("À partir du rayon", rayon / 10, "l'aire est plus grande que le périmètre.")
         break
-    
+"""    
 # --- Tests2 ---
 print(trinome_1(7))           # doit afficher 102
 print(trinome_2(2, -1, 0, 6)) # doit afficher 66
@@ -126,3 +126,161 @@ print(volume_cube(3))         # doit afficher 27
 print(volume_boule(3))        # doit afficher ~113.1
 print(perimetre_aire_rectangle(5, 10))     # doit afficher (30, 50)
 print(perimetre_aire_disque(5))            # doit afficher (~31.4, ~78.5)
+"""
+
+
+
+"""
+                        Activité 3 (Tortue)
+Objectifs : définir quelques fonctions qui dessinent des figures géométriques. Créer une fonction est
+similaire à créer un bloc avec Scratch.
+
+"""
+from turtle import*
+#color("red")
+color("green")
+#color("blue")
+#color("darkviolet")
+width(5)
+
+def triangle():
+    for i in range(3):
+        forward(200)
+        left(120)
+        
+def carre():
+    for i in range(4):
+        forward(200)
+        left(90)
+
+def  hexagone(longueur):
+    for i in range(6):
+        forward(longueur)
+        left(60)
+        
+def polygone(n,longueur):
+    for i in range(n):
+        N = 360/n
+        forward(longueur)
+        left(N)
+ """       
+#triangle()
+#carre()
+#hexagone(200)
+#polygone(5,200)
+ht()
+done()
+"""
+ 
+ 
+ 
+#        Activité 4 (Toujours des fonctions)
+#        Objectifs : créer de nouvelles fonctions
+
+# __________1_______
+# A
+def reduction(age):
+    # Attribution directe du pourcentage avec l'opérateur =
+    if age < 10:
+        valeur_reduction = 50
+    elif age <= 18:  
+        valeur_reduction = 30
+    elif age >= 60:
+        valeur_reduction = 20
+    else:
+        valeur_reduction = 0
+    return valeur_reduction 
+    #print(f"Votre réduction est de {valeur_reduction}%")
+
+# B
+def montant(tarif_normal, age):
+    pourcentage_reduit = reduction(age)
+    tarif_reduit = tarif_normal*(1-pourcentage_reduit/100)
+    return tarif_reduit
+
+
+# --- RÉSOLUTION DE L'EXERCICE ---
+
+# 1. Calcul du billet pour l'enfant de 9 ans (Tarif: 30€)
+billet_enfant = montant(30, 9)
+
+# 2. Calcul pour les jumeaux de 16 ans (Tarif: 20€ chacun -> donc 2 billets)
+billet_jumeau1 = montant(20, 16)
+billet_jumeau2 = montant(20, 16)
+
+# 3. Calcul pour les parents de 40 ans (Tarif: 35€ chacun -> donc 2 billets)
+billet_parent1 = montant(35, 40)
+billet_parent2 = montant(35, 40)
+
+# 4. Calcul du montant total
+total_famille = billet_enfant + billet_jumeau1 + billet_jumeau2 + billet_parent1 + billet_parent2
+
+    
+# --- AFFICHAGE DES RÉSULTATS ---
+print(f"Prix billet enfant : {billet_enfant} €")
+print(f"Prix billet un jumeau : {billet_jumeau1} €")
+print(f"Prix billet un parent : {billet_parent1} €")
+print("-" * 53)
+print(f"Le montant total payé par la famille est de : {total_famille} €")
+
+
+
+
+import random 
+
+# =_=_=_=A_=_=_=
+# Cette fonction ne fait QUE vérifier si un calcul est juste.
+# Elle a besoin de recevoir a, b et la réponse pour travailler.
+def calcul_est_exact(a, b, reponse):
+    if reponse == a * b:
+        return True
+    else:
+        return False
+
+# =_=_=_=B_=_=_=
+def test_multiplication(lang):
+    # 1. On génère les nombres aléatoires directement dans le jeu
+    a = random.randint(1, 9)
+    b = random.randint(1, 9)
+    
+    # 2. Pose de la question et récupération de la réponse selon la langue
+    if lang == "francais":
+        reponse_utilisateur = input(f"Combien font {a} x {b} ? : ")
+    elif lang == "anglais":
+        reponse_utilisateur = input(f"How much is {a} x {b} ? : ")
+    elif lang == "Deutsch":
+        reponse_utilisateur = input(f"Wie viel ist {a} x {b} ? : ")
+    else:
+        print("Langue non supportée / Language not supported")
+        return False
+
+    # 3. Conversion du texte de l'utilisateur en nombre entier
+    reponse_num = int(reponse_utilisateur)
+
+    # 4. On envoie les données à la fonction A pour avoir le verdict
+    est_correct = calcul_est_exact(a, b, reponse_num)
+
+    # 5. Affichage du verdict selon la langue
+    if lang == "francais":
+        if est_correct:
+            print("Bravo ! C'est exact.")
+        else:
+            print(f"Faux ! La bonne réponse était {a * b}.")
+            
+    elif lang == "anglais":
+        if est_correct:
+            print("Well done! That's correct.")
+        else:
+            print(f"Wrong! The correct answer was {a * b}.")
+            
+    elif lang == "Deutsch":
+        if est_correct:
+            print("Super! Das ist richtig.")
+        else:
+            print(f"Oh nein! Die richtige Antwort war {a * b}.")
+            
+    # 6. Retourne le résultat (True ou False)
+    return est_correct
+
+# Exemple de test
+test_multiplication("Deutsch")
