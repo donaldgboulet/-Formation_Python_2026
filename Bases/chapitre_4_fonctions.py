@@ -321,6 +321,143 @@ def deux_fonctions_egales():
         print("Elles sont egales")
         
 deux_fonctions_egales()
+
+
+
+#2.a)
+def  F1(a,b):
+    return (a+b)**2
+
+def  F2(a,b):
+    return a**2+2*a*b+b**2
+print(F1(5,5))
+print(F2(5,5))
+
+#2.b)
+egales = True
+for i in range(-100,101):
+    for j in range(-100,101):
+        if (i+j)**2 != i**2+2*i*j+j**2:
+            egales = False
+if egales:
+    print("Les deux fonctions sont egales")
+else:
+    print("Les deux fonctions ne sont pas egales ")
+    
+#2.c)
+egales = True
+for i in range(-100,101):
+    for j in range(-100,101):
+        if (i-j)**3 != i**3 - 3*i**2*j - 3*i*j**2 + j**3:
+            egales = False
+if egales:
+    print("Les deux fonctions sont egales ")
+else:
+    print("Les deux fonctions ne sont pas egales ")
+        
+    
+egales = True
+for i in range(-100,101):
+    for j in range(-100,101):
+        if (i-j)**3 != i**3 - 3*i**2*j + 3*i*j**2- j**3:
+            egales = False
+if egales:
+    print("Les deux fonctions sont egales ")
+else:
+    print("Les deux fonctions ne sont pas egales ")
+    
+    
+    
+    
+#3.a)
+def sincos(x):
+    return	(sin(x))**2 + (cos(x))**2
+
+def un(x):
+    return 1
+
+def verifie():
+    egales = True
+    for x in range(-100,101):
+        if sincos(x) != un(x):
+            egales = False
+    if egales:
+        print("Les deux fonctions  sont egales ")
+      
+    else:
+        print("Les deux fonctions ne sont pas egales")
+
+#verifie()
+
+
+# 3.b)
+epsilon = 0.00001
+egales = True
+for i in range(-100,101):
+    if abs(sincos(i) - un(i)) > epsilon:
+        egales = False
+if egales :
+    print("f et g sont expérimentalement approximativement égales  ")
+else :
+    print("f et g ne sont pas expérimentalement approximativement égales  ")
+    
+# 3.c)
+epsilon = 0.00001
+egales = True
+for i in range(-100,101):
+    if abs( sin(2*i) - 2*sin(i)*cos(i)) > epsilon:
+        egales = False
+if egales:
+    print("Les deux fonctions sont egales")
+else :
+    print("Les deux fontions ne sont pas egales ")
+    
+    
+epsilon = 0.00001
+egales = True
+for i in range(-100,101):
+    if abs(cos((pi/2)-i)- sin(i))>epsilon:
+        egales = False
+if egales:
+    print("Les deux fonctions sont egales")
+else :
+    print("Les deux fontions ne sont pas egales ")
+
+
+#3.d)
+def g1(x):
+    return sin(pi*x)
+def g2(x):
+    return 0
+def verifie_1():
+    epsilon = 0.00001
+    egales = True
+    for x in range(-100,101):
+        if abs(g1(x) - g2(x))>epsilon:
+            egales = False
+    if egales:
+        print("Les deux fonctions  sont egales ")
+      
+    else:
+        print("Les deux fonctions ne sont pas egales")
+
+verifie_1()
+print("Test avec x = 0.5 :")
+print("g1(0.5) =", g1(0.5))   # va afficher 1.0 (ou presque)
+print("g2(0.5) =", g2(0.5))   # va afficher 0
+
+
+
+
+
+
+
+
+
+        
+        
+    
+
     
     
     
